@@ -51,30 +51,29 @@ const displayBooks = (data) => {
   resultContainer.innerHTML = '';
 
   if (data.items && data.items.length > 0) {
-      data.items.forEach(item => {
-          const bookThumbnail = item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : imgPlaceholder;
-          const bookTitle = item.volumeInfo.title;
-          const bookAuthor = item.volumeInfo.authors ? item.volumeInfo.authors.join(', ') : 'Unknown Authors';
-          const bookDescription = item.volumeInfo.description
-
-
-          let bookLink = document.createElement('div');
-          bookLink.className = 'book-div'
-          bookLink.innerHTML = 
-          `
-            <div>
-              <img src="${bookThumbnail}">
-            </div>
-            <div class="book-div-info">
-              <h4>${bookTitle}</h4>
-              <p>Authors: ${bookAuthor}</p>
-              <p>${bookDescription}</p>
-              <a href="">View full details</a>
-            </div>
-          `
-
-          resultContainer.appendChild(bookLink);
-      });
+    data.items.forEach(item => {
+      const bookThumbnail = item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : imgPlaceholder;
+      const bookTitle = item.volumeInfo.title;
+      const bookAuthor = item.volumeInfo.authors ? item.volumeInfo.authors.join(', ') : 'Unknown Authors';
+      const bookDescription = item.volumeInfo.description;
+  
+  
+      let bookLink = document.createElement('div');
+      bookLink.className = 'book-div'
+      bookLink.innerHTML = 
+      `
+        <div>
+          <img src="${bookThumbnail}">
+        </div>
+        <div class="book-div-info">
+          <h4>${bookTitle}</h4>
+          <p>Authors: ${bookAuthor}</p>
+          <p>${bookDescription}</p>
+          <a href="">View Book</a>
+        </div>
+      `
+      resultContainer.appendChild(bookLink);
+    });
   } else {
     resultContainer.innerHTML = `<h2 style='text-align = center'>no results found</h2>`
   }

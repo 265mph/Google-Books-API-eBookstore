@@ -275,6 +275,7 @@ SEARCH POP-UP
 
 .search-results .result-output .book-div img {
     width: 8rem;
+    min-height: 200px;
 }
 
 .search-results .result-output .book-div .book-div-info p {
