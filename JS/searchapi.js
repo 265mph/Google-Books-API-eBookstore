@@ -45,6 +45,21 @@ const searchFunc = () => {
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
 //DISPLAYING THE RESULTS
+
+
+// function to count words in description 
+function countWords(str) {
+  if (!str) {
+    return 0; // Return 0 for undefined or null input
+  }
+
+  const arr = str.split(" ");
+
+  return arr.filter(word => word !== '').length;
+}
+
+
+
 const displayBooks = (data) => {
   let resultContainer = document.querySelector(".result-output");
   let imgPlaceholder = 'IMG/book-cover-placeholder.png'
@@ -57,6 +72,7 @@ const displayBooks = (data) => {
           const bookAuthor = item.volumeInfo.authors ? item.volumeInfo.authors.join(', ') : 'Unknown Authors';
           const bookDescription = item.volumeInfo.description
 
+          const longDescription = (countWords(bookDescription) > 30);
 
           let bookLink = document.createElement('div');
           bookLink.className = 'book-div'
@@ -68,12 +84,14 @@ const displayBooks = (data) => {
             <div class="book-div-info">
               <h4>${bookTitle}</h4>
               <p>Authors: ${bookAuthor}</p>
-              <p>${bookDescription}</p>
+           
+              <p>${longDescription ? bookDescription.substring(0, 200) + '... <a href="#">See more</a>' : bookDescription}</p>
               <a href="">View full details</a>
             </div>
           `
-
+         
           resultContainer.appendChild(bookLink);
+          
       });
   } else {
     resultContainer.innerHTML = `<h2 style='text-align = center'>no results found</h2>`
