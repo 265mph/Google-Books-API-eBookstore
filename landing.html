@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore Homepage</title>
+    <link rel="stylesheet" href="CSS/landing.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <nav>
+        <a href="landing.html">
+            <div class="bookstore-logo">
+                <ion-icon name="book-sharp"></ion-icon>
+                <h2>BOOKSTORE</h2>
+            </div>
+        </a>
+
+        <div class="my-books" style="display: none;">
+            <a href="#">
+                MY BOOKS
+            </a>
+        </div>
+
+        <div class="login-section" id="loginSection">
+            <h4 id="welcomeTag" style="display: inline-block; color: #002c83; font-family: Montserrat; font-weight: 600; margin-right: 0.8rem; align-self: bottom;"></h4>
+            <button onclick="logout()" id="logoutBtn" class="logout-btn"  style="display: none;">Log Out</button>
+            <a href="login.html" id="loginLink">Login</a>
+            <a href="register.html" id="registerLink">Register</a>
+        </div>
+    </nav>
+
+    <div class="search-section">
+        <h1>
+            Discover a world of literary wonders at our Online Bookstore,
+            where imagination takes flight and stories come alive.
+        </h1>
+
+        <div class="search-bar">
+            <input type="search" id="search-word" placeholder="Search for Title, Author or Publisher">
+            <span class="material-symbols-outlined" id="search-button" onclick="searchFunc()">search</span>
+        </div>
+    </div>
+
+    <div class="results-bg">
+        <div class="search-results">
+            <div class="results-header">
+                <h2 id="result-info"></h2>
+                <ion-icon name="close-sharp" onclick="closePopup()"></ion-icon>
+            </div>
+            <div class="result-output">
+                
+            </div>
+        </div>
+    </div>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="JS/main.js"></script>
+    <script src="JS/searchapi.js"></script>
+
+</body>
+</html>

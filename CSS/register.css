@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mooli&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@400;500;600&display=swap');
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    list-style: none;
+    border: none;
+    text-decoration: none;
+}
+
+body {
+    margin: 0rem 2.5rem;
+    font-family: Montserrat;
+}
+
+nav {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+nav .bookstore-logo {
+    display: flex;
+    gap: .3rem;
+    align-items: center;
+    cursor: pointer;
+}
+
+nav .bookstore-logo ion-icon {
+    font-size: 2rem;
+    color: #002c83;
+    transform: scaleX(-1);
+}
+
+nav .bookstore-logo h2 {
+    color: #002c83;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.form-section {
+    background: #dddee5;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    border-radius: .5rem;
+    box-shadow: 0 0.2rem 0.3rem #aaaaaa;
+}
+
+.form-section h3 {
+    color: #002c83;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 140%;
+}
+
+.form-section .input-fields p {
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: #002c83;
+    margin-bottom: 0.2rem;
+}
+
+.form-section .input-fields input {
+    width: 30vw;
+    padding: .6rem .2rem;
+    margin-bottom: 0.9rem;
+    border: 1px solid #002c83;
+    border-radius: 0.2rem;
+    font-family: Montserrat;
+}
+.password-input-container{
+    position: relative;
+}
+
+.form-section .input-fields .view-password {
+    margin-left: -2rem;
+    /* transform: translateY(0.2rem); */
+    cursor: pointer;
+    color: #002c83;
+    position: absolute;
+    bottom: 25px;
+    right: 10px;
+}
+
+
+.register-button-container{
+    text-align: center;
+}
+
+.form-section .register-button {
+    margin: auto;
+    background: #002c83;
+    color: #ffff;
+    box-shadow: 0 0.2rem 0.2rem #aaaaaa;
+    padding: 0.5rem;
+    margin: 0.9rem 0 0.5rem 0;
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 0.8rem;
+    line-height: 140%;
+    border-radius: .2rem;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+    
+}
+
+.form-section .register-button:hover {
+    background: #efefef;
+    box-shadow: none;
+    color: #002c83;
+}
+
+.form-section p {
+    font-size: .8rem;
+    color: #002c83;
+    margin-top: 1rem;
+}
+
+.form-section p a {
+    font-weight: 600;
+    color: #ea6258;
+    transition: all 300ms ease-in;
+    position: relative;
+    display: inline-block;
+}
+
+.form-section p > a::after {
+    content: '';
+    background: transparent;
+    display: block;
+    margin: auto;
+    height: 2px;
+    width: 0rem;
+    transition: width 200ms ease, background-color 200ms ease;
+}
+
+.form-section p > a:hover::after {
+    /* border-bottom: 2px solid #ea6258; */
+    width: 100%;
+    background: #ea6258;
+}
