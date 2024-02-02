@@ -15,24 +15,43 @@
             </div>
         </a>
 
-        <button>Log Out</button>
+        <button onclick="logout()">Log Out</button>
     </nav>
     
     <div class="container">
         <aside>
             <div class="bookshelf">
-                <a href="">Favorites <ion-icon name="heart-sharp"></ion-icon></a>
-                <a href="">Bookmarks <ion-icon name="bookmark-sharp"></ion-icon></a>
-                <a href="">Read <ion-icon name="checkmark-done-sharp"></ion-icon></a>
+                <a href="" id="fav-link">Favorites <ion-icon name="heart-sharp"></ion-icon></a>
+                <a href="" id="bookmark-link">Bookmarks <ion-icon name="bookmark-sharp"></ion-icon></a>
+                <a href="" id="read-link">Read <ion-icon name="checkmark-done-sharp"></ion-icon></a>
             </div>
         </aside>
 
-        <section class="bookshelf-section">
+        <div class="fav-section">
+            <div class="no-books">
+                <ion-icon name="albums-sharp"></ion-icon>
+                <h3 style="color: #224b9e;">No Books added f</h3>
+            </div>
+        </div>
 
-        </section>
+        <div class="bookmark-section">
+            <div class="no-books">
+                <ion-icon name="albums-sharp"></ion-icon>
+                <h3 style="color: #224b9e;">No Books added b</h3>
+            </div>
+        </div>
+
+        <div class="read-section">
+            <div class="no-books">
+                <ion-icon name="albums-sharp"></ion-icon>
+                <h3 style="color: #224b9e;">No Books added r</h3>
+            </div>
+        </div>
     </div>
     
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="JS/mybooks.js"></script>
+    <script src="JS/searchapi.js"></script>
 </body>
 </html>
