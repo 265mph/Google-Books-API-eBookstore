@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mooli&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@400;500;600&display=swap');
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    list-style: none;
+    border: none;
+    text-decoration: none;
+}
+
+body {
+    margin: 0rem 2.5rem;
+    font-family: Montserrat;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 12.3rem auto;
+    gap: 1rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem .5rem .7rem .5rem;
+    margin-bottom: 1.7rem;
+}
+
+nav button {
+    background: #ea6258;
+    color: #ffff;
+    box-shadow: 0 0.2rem 0.2rem #aaaaaa;
+    margin: 0;
+    padding: 0.415rem 0.9rem;
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 0.8rem;
+    line-height: 140%;
+    border-radius: .2rem;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+nav button:hover {
+    background: #efefef;
+    box-shadow: none;
+    color: #002c83;
+}
+
+nav .bookstore-logo {
+    display: flex;
+    align-items: center;
+    gap: .1rem;
+    cursor: pointer;
+}
+
+nav .bookstore-logo ion-icon {
+    font-size: 2rem;
+    color: #002c83;
+    transform: scaleX(-1);
+}
+
+nav .bookstore-logo h2 {
+    color: #002c83;
+}
+
+aside {
+    height: 85vh;
+}
+
+aside .bookshelf {
+    display: flex;
+    flex-direction: column;
+}
+
+aside .bookshelf a {
+    color: #002c83;
+    padding: 1rem 0;
+    width: 100%;
+    font-weight: 600;
+    transition: all 300ms ease-in;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+aside .bookshelf a:hover {
+    color: #2f2f2f;
+    background: #ffff;
+}
+
+.bookshelf-section {
+    background: #dddee5;
+    border-radius: .2rem;
+}
