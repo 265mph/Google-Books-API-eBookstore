@@ -281,8 +281,18 @@ SEARCH POP-UP
 .search-results .result-output .book-div .book-div-info p {
     font-size: .8rem;
     color: #525252;
-    max-height: 4.69rem;
-    overflow: hidden;
+}
+
+.search-results .result-output .book-div .book-div-info p a {
+    font: 0.7rem;
+    color: #002c83;
+    box-shadow: none;
+    background: none;
+    padding: 0.1rem;
+}
+
+.search-results .result-output .book-div .book-div-info p a:hover {
+    background: none;
 }
 
 .search-results .result-output .book-div .book-div-info a {
