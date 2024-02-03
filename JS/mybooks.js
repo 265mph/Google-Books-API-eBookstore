@@ -11,30 +11,38 @@ favLink.addEventListener("click", () => {
   document.querySelector(".bookmark-section").style.display = "none";
   document.querySelector(".read-section").style.display = "none";
 
-  favLink.style.color = "#ea6258";
-  readLink.style.color = "#002c83;";
-  bookmarkLink.style.color = "#002c83";
+  favLink.style.background = '#dddee5'
+  bookmarkLink.style.background = 'none'
+  readLink.style.background = 'none'
 });
+
+if (document.querySelector(".fav-section").style.display = "flex") {
+  favLink.style.background = '#dddee5'
+}
+
 
 bookmarkLink.addEventListener("click", () => {
   document.querySelector(".fav-section").style.display = "none";
   document.querySelector(".bookmark-section").style.display = "flex";
   document.querySelector(".read-section").style.display = "none";
 
-  bookmarkLink.style.color = "#ea6258";
-  favLink.style.color = "#002c83";
-  readLink.style.color = "#002c83";
+  bookmarkLink.style.background = '#dddee5'
+  favLink.style.background = 'none'
+  readLink.style.background = 'none'
 });
+
 
 readLink.addEventListener("click", () => {
   document.querySelector(".fav-section").style.display = "none";
   document.querySelector(".bookmark-section").style.display = "none";
   document.querySelector(".read-section").style.display = "flex";
 
-  readLink.style.color = "#ea6258";
-  bookmarkLink.style.color = "#002c83";
-  favLink.style.color = "#002c83";
+  readLink.style.background = '#dddee5'
+  favLink.style.background = 'none'
+  bookmarkLink.style.background = 'none'
 });
+
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
