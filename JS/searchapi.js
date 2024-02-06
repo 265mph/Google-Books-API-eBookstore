@@ -42,6 +42,19 @@ const searchFunc = () => {
 
 
 
+function viewBookDetails (title, author, desc, thumbnail) {
+  
+  document.getElementById('popuptitle').innerHTML = title;
+  document.getElementById('popupauhtor').innerHTML = author;
+  document.getElementById('popupdesc').innerHTML = desc;
+  document.getElementById('popupthumbnail').src = thumbnail;
+
+  document.querySelector('.view-details').style.visibility = 'visible';
+  document.querySelector('.view-details').style.opacity = '1';
+}
+
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
 //DISPLAYING THE RESULTS
@@ -81,7 +94,7 @@ const displayBooks = (data) => {
        
           <p>${longDescription ? bookDescription.substring(0, 200) + '... <a href="#">See more</a>' : bookDescription}</p>
 
-          <a href="">View Book Details</a>
+          <button onclick="viewBookDetails('${bookTitle}', '${bookAuthor}', '${bookDescription}', '${bookThumbnail}')">View Book Details</button>
         </div>
       `
       resultContainer.appendChild(bookLink);
@@ -99,8 +112,9 @@ const displayBooks = (data) => {
 //SEARCHING BY PRESSING ENTER
 document.getElementById("search-word").addEventListener('keydown', (event) => {
   if (event.key === "Enter") {
-      searchFunc()
+    searchFunc()
   }
 })
+
 
 

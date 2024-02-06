@@ -252,7 +252,11 @@ SEARCH POP-UP
 .search-results .results-header ion-icon {
     font-size: 1.5rem;
     cursor: pointer;
-    
+}
+
+.search-results .results-header ion-icon:hover {
+    background: #dddddd;
+    border-radius: 5px;
 }
 
 .search-results .result-output {
@@ -295,7 +299,7 @@ SEARCH POP-UP
     background: none;
 }
 
-.search-results .result-output .book-div .book-div-info a {
+.search-results .result-output .book-div .book-div-info button {
     background: #002c83;
     color: #ffff;
     box-shadow: 0 0.2rem 0.2rem #828282;
@@ -309,9 +313,87 @@ SEARCH POP-UP
     cursor: pointer;
 }
 
-.search-results .result-output .book-div .book-div-info a:hover {
+.search-results .result-output .book-div .book-div-info button:hover {
     background: #efefef;
     box-shadow: none;
     color: #002c83;
     transition: all 300ms ease-in-out;
+}
+
+
+
+/************************************
+VIEW BOOK DETAILS
+*************************************/
+.view-details {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+}
+
+.book-details {
+    background: #ffff;
+    height: 80vh;
+    width: 75%;
+    padding: 1.5rem 1rem;
+    position: relative;
+    border: 1px solid #002c83;
+    box-shadow: 0 0.2rem 0.3rem #525252;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #002c83 #ffffff;
+}
+
+.book-details-info {
+    display: grid;
+    gap: 1.3rem;
+    grid-template-columns: 60% 40%;
+}
+
+.book-details-info .book-details-thumbnail {
+    display: flex;
+    justify-content: center;
+}
+
+.book-details-thumbnail img {
+    width: 15rem;
+}
+
+/************************************
+BEST SELLER SECTION
+*************************************/
+
+.best-seller {
+    margin-top: 3.2rem;
+}
+
+.best-seller h3 {
+    color: #002c83;
+    padding-bottom: .7rem;
+    border-bottom: 1px solid #828282;
+}
+
+.best-seller .best-seller-books {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.best-seller .best-seller-books .best-seller-book h4 {
+    font-size: .8rem;
+}
+
+.best-seller .best-seller-books .best-seller-book p {
+    font-size: .8rem;
+    color: #525252;
 }
