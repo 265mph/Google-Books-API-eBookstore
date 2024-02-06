@@ -2,7 +2,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////////
 //CLOSING THE RESULTS POP-UP
 
-//Function to close the Search modal
+// Function to close the Search modal
 const closeSearch = () => {
   document.querySelector(".results-bg").style.visibility = "hidden"
   document.getElementById("search-word").value = ""
@@ -14,7 +14,7 @@ const closeSearch = () => {
 //////////////////////////////////////////////////////////////////////////////////////////////
 //WORKING WITH API & SEARCHING
 
-//Using Fetch API to get info. from the API
+// Using Fetch API to get info. from the API
 const apiKey = "AIzaSyDJgJDIocYpDLp3V5bQXFt7AjV2LTmldCA";
 
 const searchFunc = () => {
@@ -51,14 +51,21 @@ const searchFunc = () => {
 
 // Function that shows more details about a book in a new modal
 function viewBookDetails (title, author, desc, thumbnail) {
-  
-  document.getElementById('popuptitle').innerHTML = title;
-  document.getElementById('popupauhtor').innerHTML = author;
-  document.getElementById('popupdesc').innerHTML = desc;
-  document.getElementById('popupthumbnail').src = thumbnail;
+  document.getElementById('popup-title').innerHTML = title;
+  document.getElementById('popup-author').innerHTML = author;
+  document.getElementById('popup-desc').innerHTML = desc;
+  document.getElementById('popup-thumbnail').src = thumbnail;
+
 
   document.querySelector('.view-details').style.visibility = 'visible';
   document.querySelector('.view-details').style.opacity = '1';
+}
+
+
+// Function that closes the viewBookDetails modal
+const closeBookDetails = () => {
+  document.querySelector('.view-details').style.visibility = 'hidden';
+  document.querySelector('.view-details').style.opacity = '0';
 }
 
 
@@ -67,7 +74,7 @@ function viewBookDetails (title, author, desc, thumbnail) {
 //////////////////////////////////////////////////////////////////////////////////////////////
 //DISPLAYING THE RESULTS
 
-// function to count words in the book description & shorten it 
+// Function to count words in the book description & shorten it 
 function countWords(str) {
   if (!str) {
     return 0; // Return 0 for undefined or null input
@@ -76,7 +83,7 @@ function countWords(str) {
   return arr.filter(word => word !== '').length;
 }
 
-//Function to display the results gotten from the API in HTML
+// Function to display the results gotten from the API in HTML
 const displayBooks = (data) => {
   let resultContainer = document.querySelector(".result-output");
   let imgPlaceholder = 'IMG/book-cover-placeholder.png'
@@ -103,7 +110,7 @@ const displayBooks = (data) => {
        
           <p>${longDescription ? bookDescription.substring(0, 200) + '... <a href="#">See more</a>' : bookDescription}</p>
 
-          <button onclick="viewBookDetails('${bookTitle}', '${bookAuthor}', '${bookDescription}', '${bookThumbnail}')">View Book Details</button>
+          <button onclick="viewBookDetails('${bookTitle}' , '${bookAuthor}' , '${bookDescription}' , '${bookThumbnail}')" >View Book Details</button>
         </div>
       `
       resultContainer.appendChild(bookLink);
