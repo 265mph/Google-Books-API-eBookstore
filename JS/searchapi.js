@@ -1,7 +1,9 @@
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
 //CLOSING THE RESULTS POP-UP
-const closePopup = () => {
+
+//Function to close the Search modal
+const closeSearch = () => {
   document.querySelector(".results-bg").style.visibility = "hidden"
   document.getElementById("search-word").value = ""
 };
@@ -11,6 +13,8 @@ const closePopup = () => {
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
 //WORKING WITH API & SEARCHING
+
+//Using Fetch API to get info. from the API
 const apiKey = "AIzaSyDJgJDIocYpDLp3V5bQXFt7AjV2LTmldCA";
 
 const searchFunc = () => {
@@ -41,7 +45,11 @@ const searchFunc = () => {
 };
 
 
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//VIEW BOOK FUNCTION
 
+// Function that shows more details about a book in a new modal
 function viewBookDetails (title, author, desc, thumbnail) {
   
   document.getElementById('popuptitle').innerHTML = title;
@@ -59,7 +67,7 @@ function viewBookDetails (title, author, desc, thumbnail) {
 //////////////////////////////////////////////////////////////////////////////////////////////
 //DISPLAYING THE RESULTS
 
-// function to count words in description 
+// function to count words in the book description & shorten it 
 function countWords(str) {
   if (!str) {
     return 0; // Return 0 for undefined or null input
@@ -68,6 +76,7 @@ function countWords(str) {
   return arr.filter(word => word !== '').length;
 }
 
+//Function to display the results gotten from the API in HTML
 const displayBooks = (data) => {
   let resultContainer = document.querySelector(".result-output");
   let imgPlaceholder = 'IMG/book-cover-placeholder.png'
