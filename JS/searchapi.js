@@ -10,6 +10,19 @@ const closeSearch = () => {
 
 
 
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//SEARCHING BY PRESSING ENTER
+document.getElementById("search-word").addEventListener('keydown', (event) => {
+  if (event.key === "Enter") {
+    searchFunc()
+  }
+})
+
+
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
 //WORKING WITH API & SEARCHING
@@ -45,29 +58,6 @@ const searchFunc = () => {
 };
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////
-//VIEW BOOK FUNCTION
-
-// Function that shows more details about a book in a new modal
-function viewBookDetails (title, author, desc, thumbnail) {
-  document.getElementById('popup-title').innerHTML = title;
-  document.getElementById('popup-author').innerHTML = author;
-  document.getElementById('popup-desc').innerHTML = desc;
-  document.getElementById('popup-thumbnail').src = thumbnail;
-
-
-  document.querySelector('.view-details').style.visibility = 'visible';
-  document.querySelector('.view-details').style.opacity = '1';
-}
-
-
-// Function that closes the viewBookDetails modal
-const closeBookDetails = () => {
-  document.querySelector('.view-details').style.visibility = 'hidden';
-  document.querySelector('.view-details').style.opacity = '0';
-}
-
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -96,6 +86,7 @@ const displayBooks = (data) => {
       const bookAuthor = item.volumeInfo.authors ? item.volumeInfo.authors.join(', ') : 'Unknown Authors';
       const bookDescription = item.volumeInfo.description ? item.volumeInfo.description : 'No Book description';
       const longDescription = (countWords(bookDescription) > 30);
+
   
       let bookLink = document.createElement('div');
       bookLink.className = 'book-div'
@@ -110,12 +101,24 @@ const displayBooks = (data) => {
        
           <p>${longDescription ? bookDescription.substring(0, 200) + '... <a href="#">See more</a>' : bookDescription}</p>
 
-          <button onclick="viewBookDetails('${bookTitle}' , '${bookAuthor}' , '${bookDescription}' , '${bookThumbnail}')" >View Book Details</button>
+          <button class="show-details-btn">Show Details</button>
         </div>
       `
+      
+      let showDetailsButton = bookLink.querySelector('.show-details-btn');
+      showDetailsButton.addEventListener('click', function() {
+        document.getElementById('popup-title').innerHTML = bookTitle;
+        document.getElementById('popup-author').innerHTML = bookAuthor;
+        document.getElementById('popup-desc').innerHTML = bookDescription;
+        document.getElementById('popup-thumbnail').src = bookThumbnail;
+        
+        
+        document.querySelector('.view-details').style.visibility = 'visible';
+        document.querySelector('.view-details').style.opacity = '1';
+      });
+      
       resultContainer.appendChild(bookLink);
     });
-    
   } else {
     resultContainer.innerHTML = `<h2 style='text-align = center'>no results found</h2>`
   }
@@ -123,14 +126,13 @@ const displayBooks = (data) => {
 
 
 
+
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
-//SEARCHING BY PRESSING ENTER
-document.getElementById("search-word").addEventListener('keydown', (event) => {
-  if (event.key === "Enter") {
-    searchFunc()
-  }
-})
+//VIEW BOOK FUNCTION
 
-
-
+// Function that closes the viewBookDetails modal
+const closeBookDetails = () => {
+  document.querySelector('.view-details').style.visibility = 'hidden';
+  document.querySelector('.view-details').style.opacity = '0';
+}
