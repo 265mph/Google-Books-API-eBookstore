@@ -344,29 +344,67 @@ VIEW BOOK DETAILS
     background: #ffff;
     height: 80vh;
     width: 75%;
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 2.5rem 1.5rem 1rem;
     position: relative;
     border: 1px solid #002c83;
     box-shadow: 0 0.2rem 0.3rem #525252;
     overflow-y: scroll;
-    overflow-x: hidden;
     scrollbar-width: thin;
     scrollbar-color: #002c83 #ffffff;
 }
 
 .book-details-info {
     display: grid;
-    gap: 1.3rem;
-    grid-template-columns: 60% 40%;
+    gap: 1rem;
+    grid-template-columns: 30% 70%;
+    margin-bottom: 3rem;
 }
+
+#popup-title {
+    margin-bottom: .5rem;
+}
+
+#popup-author {
+    font-size: .75rem;
+    margin-bottom: .5rem;
+}
+
+#popup-desc {
+    font-size: .75rem;
+    line-height: 150%;
+}
+
+.right-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.right-details .book-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.right-details .book-actions ion-icon {
+    font-size: 1.3rem;
+    color: #002c83;
+    cursor: pointer;
+}
+
+.right-details .book-actions ion-icon:hover {
+    color: #ea6258;
+    transition: 300ms ease-in-out;
+} 
 
 .book-details-info .book-details-thumbnail {
     display: flex;
-    justify-content: end;
+    justify-content: center;
 }
 
 .book-details-thumbnail img {
-    width: 15rem;
+    margin-top: .8rem;
+    height: 250px;
 }
 
 .close-view-details {
@@ -433,12 +471,10 @@ BEST SELLER SECTION
     font-size: .7rem;
     font-weight: 600;
     padding-bottom: .2rem;
-    border-bottom: 2px solid #002c83;
 }
 
 .best-seller .best-seller-books .best-seller-book a:hover {
     color: #ea6258;
-    border-bottom: 2px solid #ea6258;
     transition: all 300ms ease-in-out;
 }
 

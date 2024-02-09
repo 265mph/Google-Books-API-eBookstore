@@ -41,7 +41,7 @@ const searchFunc = () => {
     document.querySelector(".results-bg").style.visibility = "visible";
     document.querySelector(".results-bg").style.opacity = "1";
 
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchKeyword}&key=${apiKey}`)
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchKeyword}&key=${apiKey}&startIndex=0&maxResults=20`)
     .then((response) => {
         console.log('successful', response)
         return response.json();
