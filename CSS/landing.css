@@ -372,6 +372,11 @@ VIEW BOOK DETAILS
 #popup-desc {
     font-size: .75rem;
     line-height: 150%;
+    margin-bottom: .5rem;
+}
+
+#popup-isbn {
+    font-size: .75rem;
 }
 
 .right-details {
@@ -405,6 +410,7 @@ VIEW BOOK DETAILS
 .book-details-thumbnail img {
     margin-top: .8rem;
     height: 250px;
+    box-shadow: -4px 4px 3px #828282;
 }
 
 .close-view-details {

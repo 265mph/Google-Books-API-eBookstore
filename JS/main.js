@@ -38,6 +38,7 @@ const checkLoggedIn = () => {
         document.querySelector(".logout-btn").style.display = "none"; // Hide logout button
         document.getElementById("loginLink").style.display = "inline-block"; // Show login link
         document.getElementById("registerLink").style.display = "inline-block";
+        document.querySelector(".book-actions").style.visibility = "hidden"
     }
 }
 

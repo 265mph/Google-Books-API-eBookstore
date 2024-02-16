@@ -41,7 +41,7 @@ const searchFunc = () => {
     document.querySelector(".results-bg").style.visibility = "visible";
     document.querySelector(".results-bg").style.opacity = "1";
 
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchKeyword}&key=${apiKey}&startIndex=0&maxResults=20`)
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchKeyword}&key=${apiKey}&startIndex=0&maxResults=40`)
     .then((response) => {
         console.log('successful', response)
         return response.json();
@@ -67,7 +67,7 @@ const searchFunc = () => {
 // Function to count words in the book description & shorten it 
 function countWords(str) {
   if (!str) {
-    return 0; // Return 0 for undefined or null input
+    return 0;
   }
   const arr = str.split(" ");
   return arr.filter(word => word !== '').length;
@@ -81,6 +81,9 @@ const displayBooks = (data) => {
 
   if (data.items && data.items.length > 0) {
     data.items.forEach(item => {
+      const industryIdentifiers = item.volumeInfo.industryIdentifiers || [];
+      const isbnObject = industryIdentifiers.find(identifier => identifier.type === 'ISBN_13' || identifier.type === 'ISBN_10');
+      const bookISBN = isbnObject ? isbnObject.identifier : 'ISBN not available';
       const bookThumbnail = item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : imgPlaceholder;
       const bookTitle = item.volumeInfo.title;
       const bookAuthor = item.volumeInfo.authors ? item.volumeInfo.authors.join(', ') : 'Unknown Authors';
@@ -110,6 +113,7 @@ const displayBooks = (data) => {
         document.getElementById('popup-title').innerHTML = bookTitle;
         document.getElementById('popup-author').innerHTML = bookAuthor;
         document.getElementById('popup-desc').innerHTML = bookDescription;
+        document.getElementById('popup-isbn').innerHTML = `Book ISBN: ${bookISBN}`;
         document.getElementById('popup-thumbnail').src = bookThumbnail;
         
         
@@ -125,7 +129,28 @@ const displayBooks = (data) => {
 }
 
 
+const bookmarkBook = (bookmarkData) => {
+  let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
 
+  const isBookmarked = bookmarks.some(book => book.id === bookData.id);
+    if (!isBookmarked) {
+      bookmarks.push(bookmarkData);
+      localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+  };
+}
+
+document.getElementById('bookmark-book').addEventListener('click', () => {
+  const bookData = {
+    id: document.getElementById('popup-isbn').innerText,
+    title: document.getElementById('popup-title').innerText,
+    author: document.getElementById('popup-author').innerText,
+    thumbnail: document.getElementById('popup-thumbnail').src
+  }
+
+  bookmarkBook(bookData);
+
+  alert('Book has been bookmarked!');
+})
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
