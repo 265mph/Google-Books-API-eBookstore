@@ -88,7 +88,7 @@ aside .bookshelf p {
     display: flex;
     align-items: center;
     gap: .5rem;
-    cursor: pointer;
+    cursor: pointer; 
 }
 
 aside .bookshelf p:hover {
@@ -99,43 +99,70 @@ aside .bookshelf p:hover {
 
 .fav-section {
     background: #dddee5;
+    height: 545px;
+    display: block;
     border-radius: .2rem;
     border-top-left-radius: 0rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid #002c83
+    border: 2px solid #002c83;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #002c83 #dddee5;
 }
 
 .bookmark-section {
     background: #dddee5;
-    border-radius: .2rem;
+    height: 545px;
     display: none;
-    justify-content: center;
-    align-items: center;
+    border-radius: .2rem;
     border: 2px solid #002c83;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #002c83 #dddee5;
 }
 
 .read-section {
     background: #dddee5;
-    border-radius: .2rem;
+    height: 545px;
     display: none;
-    justify-content: center;
-    align-items: center;
+    border-radius: .2rem;
     border: 2px solid #002c83;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #002c83 #dddee5;
 }
 
-.no-books {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#bookmarkbooks-container {
+    padding: .6rem .8rem;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    row-gap: 1.5rem;
 }
 
-.no-books ion-icon {
-    font-size: 4rem;
-    color: #224b9e;
+.saved-book h4 {
+    font-size: .8rem;
+    margin-top: .5rem;
 }
 
-.active-link {
-    background: #dddee5;
+.saved-book p {
+    color: #3a3a3a;
+    font-size: .8rem;
+    margin-top: .5rem;
+    margin-bottom: .2rem;
+}
+
+.saved-book a {
+    color: #002c83;
+    font-size: .7rem;
+    font-weight: 600;
+    padding-bottom: .2rem;
+}
+
+.saved-book img {
+    width: 7.5rem;
+    box-shadow: -4px 4px 3px #828282;
+}
+
+.saved-book img:hover {
+    box-shadow: none;
+    transition: 300ms ease-in-out;
 }

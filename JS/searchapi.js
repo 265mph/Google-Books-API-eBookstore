@@ -132,7 +132,7 @@ const displayBooks = (data) => {
 const bookmarkBook = (bookmarkData) => {
   let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
 
-  const isBookmarked = bookmarks.some(book => book.id === bookData.id);
+  const isBookmarked = bookmarks.some(book => book.id === bookmarkData.id);
     if (!isBookmarked) {
       bookmarks.push(bookmarkData);
       localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
@@ -140,14 +140,14 @@ const bookmarkBook = (bookmarkData) => {
 }
 
 document.getElementById('bookmark-book').addEventListener('click', () => {
-  const bookData = {
+  let bookmarkData = {
     id: document.getElementById('popup-isbn').innerText,
     title: document.getElementById('popup-title').innerText,
     author: document.getElementById('popup-author').innerText,
     thumbnail: document.getElementById('popup-thumbnail').src
   }
 
-  bookmarkBook(bookData);
+  bookmarkBook(bookmarkData);
 
   alert('Book has been bookmarked!');
 })
