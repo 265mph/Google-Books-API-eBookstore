@@ -129,6 +129,23 @@ const displayBooks = (data) => {
 }
 
 
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//VIEW BOOK FUNCTION
+
+// Function that closes the viewBookDetails modal
+const closeBookDetails = () => {
+  document.querySelector('.view-details').style.visibility = 'hidden';
+  document.querySelector('.view-details').style.opacity = '0';
+}
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//STORING BOOKMARKED BOOK TO LOCAl STORAGE
 const bookmarkBook = (bookmarkData) => {
   let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
 
@@ -152,12 +169,32 @@ document.getElementById('bookmark-book').addEventListener('click', () => {
   alert('Book has been bookmarked!');
 })
 
-//////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////
-//VIEW BOOK FUNCTION
 
-// Function that closes the viewBookDetails modal
-const closeBookDetails = () => {
-  document.querySelector('.view-details').style.visibility = 'hidden';
-  document.querySelector('.view-details').style.opacity = '0';
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//STORING BOOKMARKED BOOK TO LOCAl STORAGE
+const favBook = (favouriteData) => {
+  let favourites = JSON.parse(localStorage.getItem('favourites')) || [];
+
+  const isFavourited = favourites.some(book => book.id === favouriteData.id);
+    if (!isFavourited) {
+      favourites.push(favouriteData);
+      localStorage.setItem('favourites', JSON.stringify(favourites));
+  };
 }
+
+document.getElementById('fav-book').addEventListener('click', () => {
+  let favouriteData = {
+    id: document.getElementById('popup-isbn').innerText,
+    title: document.getElementById('popup-title').innerText,
+    author: document.getElementById('popup-author').innerText,
+    thumbnail: document.getElementById('popup-thumbnail').src
+  }
+
+  favBook(favouriteData);
+
+  alert('Book has been added to Favourites!');
+})
+

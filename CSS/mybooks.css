@@ -131,6 +131,13 @@ aside .bookshelf p:hover {
     scrollbar-color: #002c83 #dddee5;
 }
 
+#favbooks-container {
+    padding: .6rem .8rem;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    row-gap: 1.5rem;
+}
+
 #bookmarkbooks-container {
     padding: .6rem .8rem;
     display: grid;
@@ -144,10 +151,10 @@ aside .bookshelf p:hover {
 }
 
 .saved-book p {
-    color: #3a3a3a;
-    font-size: .8rem;
+    color: #1c1c1c;
+    font-size: .7rem;
     margin-top: .5rem;
-    margin-bottom: .2rem;
+    margin-bottom: .5rem;
 }
 
 .saved-book a {
@@ -155,6 +162,16 @@ aside .bookshelf p:hover {
     font-size: .7rem;
     font-weight: 600;
     padding-bottom: .2rem;
+    display: block;
+}
+
+.saved-book button {
+    background: none;
+    color: #ea6258;
+    font-family: Montserrat;
+    font-size: .7rem;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 .saved-book img {
