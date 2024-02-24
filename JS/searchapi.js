@@ -113,14 +113,15 @@ const displayBooks = (data) => {
         document.getElementById('popup-title').innerHTML = bookTitle;
         document.getElementById('popup-author').innerHTML = bookAuthor;
         document.getElementById('popup-desc').innerHTML = bookDescription;
-        document.getElementById('popup-isbn').innerHTML = `Book ISBN: ${bookISBN}`;
+        document.getElementById('popup-isbn').innerHTML = bookISBN;
         document.getElementById('popup-thumbnail').src = bookThumbnail;
         
         
         document.querySelector('.view-details').style.visibility = 'visible';
         document.querySelector('.view-details').style.opacity = '1';
+
       });
-      
+
       resultContainer.appendChild(bookLink);
     });
   } else {
@@ -198,3 +199,14 @@ document.getElementById('fav-book').addEventListener('click', () => {
   alert('Book has been added to Favourites!');
 })
 
+
+
+const readBook = () => {
+  let bookISBN = document.getElementById('popup-isbn').innerText
+  let viewerUrl = 'bookreader.html?isbn='+bookISBN;
+  document.getElementById('book-content').href = viewerUrl;
+}
+
+document.getElementById('read-book').addEventListener('click', () => {
+  readBook()
+})

@@ -23,7 +23,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem .5rem .7rem .5rem;
+    padding: 1rem .5rem .7rem 0rem;
     margin-bottom: 1.7rem;
 }
 
@@ -62,6 +62,22 @@ nav .bookstore-logo ion-icon {
 }
 
 nav .bookstore-logo h2 {
+    color: #002c83;
+}
+
+nav .back-home {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+nav .back-home ion-icon {
+    color: #002c83;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+nav .back-home h4 {
     color: #002c83;
 }
 
@@ -120,6 +136,14 @@ aside .bookshelf p:hover {
     scrollbar-color: #002c83 #dddee5;
 }
 
+.bookmark-section::-webkit-scrollbar {
+    width: 10px;
+}
+
+.bookmark-section::-webkit-scrollbar-thumb {
+    background-color: #002c83;
+}
+
 .read-section {
     background: #dddee5;
     height: 545px;
@@ -129,6 +153,14 @@ aside .bookshelf p:hover {
     overflow-y: scroll;
     scrollbar-width: thin;
     scrollbar-color: #002c83 #dddee5;
+}
+
+.read-section::-webkit-scrollbar {
+    width: 10px;
+}
+
+.read-section::-webkit-scrollbar-thumb {
+    background-color: #002c83;
 }
 
 #favbooks-container {
@@ -143,6 +175,10 @@ aside .bookshelf p:hover {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     row-gap: 1.5rem;
+}
+
+.saved-book {
+    max-height: 289px;
 }
 
 .saved-book h4 {
@@ -176,6 +212,7 @@ aside .bookshelf p:hover {
 
 .saved-book img {
     width: 7.5rem;
+    height: 185px;
     box-shadow: -4px 4px 3px #828282;
 }
 
