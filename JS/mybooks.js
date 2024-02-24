@@ -73,11 +73,19 @@ const displayBookmarks = () => {
       <img src="${book.thumbnail}" alt="Book Cover">
       <h4>${book.title}</h4>
       <p>${book.author}</p>
-      <a href="${book.previewLink}" target="_blank">Read Book</a>
+      <a target="_blank" href="" class="read-bookmark">Read Book</a>
       <button class="remove-bookmark" data-isbn="${book.id}">Remove</button>
     `
     ;
 
+    const readBookmark = bookDiv.querySelector('.read-bookmark');
+    readBookmark.addEventListener('click', () => {
+      let bookISBN = book.id;
+      let viewerUrl = 'bookreader.html?isbn='+bookISBN;
+      readBookmark.href = viewerUrl
+    })
+
+    
     const removeButton = bookDiv.querySelector('.remove-bookmark');
     removeButton.addEventListener('click', () => {
       const isbn = removeButton.getAttribute('data-isbn');
@@ -154,3 +162,11 @@ const removeFavbook = (isbn) => {
 }
 
 displayFavourites();
+
+
+
+
+
+const readBookmarks = () => {
+  let bookISBN = docu
+}

@@ -419,6 +419,7 @@ VIEW BOOK DETAILS
 
 .book-details-thumbnail img {
     margin-top: .8rem;
+    width: 10.5rem;
     height: 250px;
     box-shadow: -4px 4px 3px #828282;
 }

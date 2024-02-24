@@ -8,13 +8,18 @@
     <script type="text/javascript">
       google.books.load();
 
+      function bookUnavailable() {
+        alert("Oops! This book is unavailable.");
+      }
+
+
       function initialize() {
         var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
         let params = new URLSearchParams(window.location.search);
         let bookIsbn = params.get('isbn');
 
         if (bookIsbn) {
-          viewer.load('ISBN:' + bookIsbn);
+          viewer.load('ISBN:' + bookIsbn, bookUnavailable);
         }
       }
 
