@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
-//LOGGING OUT
+//LOGGING OUT FROM WEBSITE
 const logout = () => {
   localStorage.removeItem("user_id");
   localStorage.removeItem("user_pass");
@@ -78,6 +78,8 @@ const displayBookmarks = () => {
     `
     ;
 
+
+    //function to read a bookmarked book
     const readBookmark = bookDiv.querySelector('.read-bookmark');
     readBookmark.addEventListener('click', () => {
       let bookISBN = book.id;
@@ -85,7 +87,7 @@ const displayBookmarks = () => {
       readBookmark.href = viewerUrl
     })
 
-    
+    // Function to remove books from bookmarks
     const removeButton = bookDiv.querySelector('.remove-bookmark');
     removeButton.addEventListener('click', () => {
       const isbn = removeButton.getAttribute('data-isbn');
@@ -131,11 +133,21 @@ const displayFavourites = () => {
       <img src="${book.thumbnail}" alt="Book Cover">
       <h4>${book.title}</h4>
       <p>${book.author}</p>
-      <a href="${book.previewLink}" target="_blank">Read Book</a>
+      <a href="" class="read-fav" target="_blank" >Read Book</a>
       <button class="remove-bookmark" data-isbn="${book.id}">Remove</button>
     `
     ;
 
+
+    // Function to read book in favourites
+    const readFavbook = bookDiv.querySelector('.read-fav');
+    readFavbook.addEventListener('click', () => {
+      let bookISBN = book.id;
+      let viewerUrl = 'bookreader.html?isbn='+bookISBN;
+      readFavbook.href = viewerUrl
+    })
+
+    // Function to remove books from bookmarks
     const removeButton = bookDiv.querySelector('.remove-bookmark');
     removeButton.addEventListener('click', () => {
       const isbn = removeButton.getAttribute('data-isbn');
@@ -148,7 +160,7 @@ const displayFavourites = () => {
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
-//FUNCTION TO REMOVE A BOOKS FROM FVOURITES
+//FUNCTION TO REMOVE A BOOKS FROM FAVOURITES
 const removeFavbook = (isbn) => {
   let favourites = JSON.parse(localStorage.getItem('favourites')) || [];
   
@@ -163,10 +175,3 @@ const removeFavbook = (isbn) => {
 
 displayFavourites();
 
-
-
-
-
-const readBookmarks = () => {
-  let bookISBN = docu
-}
