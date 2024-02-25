@@ -146,7 +146,7 @@ const closeBookDetails = () => {
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
-//STORING BOOKMARKED BOOK TO LOCAl STORAGE
+//STORING BOOKMARKED BOOK TO LOCAL STORAGE
 const bookmarkBook = (bookmarkData) => {
   let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
 
@@ -154,7 +154,7 @@ const bookmarkBook = (bookmarkData) => {
     if (!isBookmarked) {
       bookmarks.push(bookmarkData);
       localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-  };
+    };
 }
 
 document.getElementById('bookmark-book').addEventListener('click', () => {
@@ -175,7 +175,7 @@ document.getElementById('bookmark-book').addEventListener('click', () => {
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
-//STORING BOOKMARKED BOOK TO LOCAl STORAGE
+//STORING LIKED BOOK TO LOCAL STORAGE
 const favBook = (favouriteData) => {
   let favourites = JSON.parse(localStorage.getItem('favourites')) || [];
 
@@ -183,7 +183,7 @@ const favBook = (favouriteData) => {
     if (!isFavourited) {
       favourites.push(favouriteData);
       localStorage.setItem('favourites', JSON.stringify(favourites));
-  };
+    };
 }
 
 document.getElementById('fav-book').addEventListener('click', () => {
@@ -198,6 +198,34 @@ document.getElementById('fav-book').addEventListener('click', () => {
 
   alert('Book has been added to Favourites!');
 })
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//STORING READ BOOKS TO LOCAL STORAGE
+const readBooks = (readBookData) => {
+  let booksread = JSON.parse(localStorage.getItem('booksread')) || [];
+
+  const hasBeenRead = booksread.some(book => book.id === booksread.id);
+    if (!hasBeenRead) {
+      booksread.push(readBookData);
+      localStorage.setItem('booksread', JSON.stringify(booksread));
+    };
+}
+
+document.getElementById('read-book').addEventListener('click', () => {
+  let readBookData = {
+    id: document.getElementById('popup-isbn').innerText,
+    title: document.getElementById('popup-title').innerText,
+    author: document.getElementById('popup-author').innerText,
+    thumbnail: document.getElementById('popup-thumbnail').src
+  }
+
+  readBooks(readBookData);
+})
+
 
 
 

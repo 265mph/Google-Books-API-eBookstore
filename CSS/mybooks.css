@@ -177,6 +177,13 @@ aside .bookshelf p:hover {
     row-gap: 1.5rem;
 }
 
+#readbooks-container {
+    padding: .6rem .8rem;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    row-gap: 1.5rem;
+}
+
 .saved-book {
     max-height: 289px;
 }

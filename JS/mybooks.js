@@ -139,7 +139,7 @@ const displayFavourites = () => {
     ;
 
 
-    // Function to read book in favourites
+    // Function to read book in FAVOURITES
     const readFavbook = bookDiv.querySelector('.read-fav');
     readFavbook.addEventListener('click', () => {
       let bookISBN = book.id;
@@ -147,7 +147,7 @@ const displayFavourites = () => {
       readFavbook.href = viewerUrl
     })
 
-    // Function to remove books from bookmarks
+    // Function to remove books from FAVOURITES
     const removeButton = bookDiv.querySelector('.remove-bookmark');
     removeButton.addEventListener('click', () => {
       const isbn = removeButton.getAttribute('data-isbn');
@@ -175,3 +175,62 @@ const removeFavbook = (isbn) => {
 
 displayFavourites();
 
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//FUNCTION TO RETREIVE BOOKS FROM STORAGE & DISPLAY IN READ
+const displayReadBooks = () => {
+  const readBooks = JSON.parse(localStorage.getItem('booksread')) || [];
+
+
+  readBooks.forEach(book => {
+    const bookDiv = document.createElement('div');
+    bookDiv.className = 'saved-book';
+    bookDiv.innerHTML = 
+    `
+      <img src="${book.thumbnail}" alt="Book Cover">
+      <h4>${book.title}</h4>
+      <p>${book.author}</p>
+      <a href="" class="read-book" target="_blank" >Read Book</a>
+      <button class="remove-read" data-isbn="${book.id}">Remove</button>
+    `
+    ;
+
+
+    // Function to read book in READ
+    const readbook = bookDiv.querySelector('.read-book');
+    readbook.addEventListener('click', () => {
+      let bookISBN = book.id;
+      let viewerUrl = 'bookreader.html?isbn='+bookISBN;
+      readbook.href = viewerUrl
+    })
+
+    // Function to remove books from READ
+    const removeButton = bookDiv.querySelector('.remove-read');
+    removeButton.addEventListener('click', () => {
+      const isbn = removeButton.getAttribute('data-isbn');
+      removeReadbook(isbn);
+    })
+    
+    document.getElementById('readbooks-container').appendChild(bookDiv);
+  });
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//FUNCTION TO REMOVE A BOOKS FROM READ
+const removeReadbook = (isbn) => {
+  let readBooks = JSON.parse(localStorage.getItem('booksread')) || [];
+  
+  // Filter out the read with the provided ISBN
+  readBooks = readBooks.filter(book => book.id !== isbn);
+  
+  // Update the read in local storage
+  localStorage.setItem('readBooks', JSON.stringify(readBooks));
+  
+  window.location.reload();
+}
+
+displayReadBooks();
