@@ -228,7 +228,7 @@ const removeReadbook = (isbn) => {
   readBooks = readBooks.filter(book => book.id !== isbn);
   
   // Update the read in local storage
-  localStorage.setItem('readBooks', JSON.stringify(readBooks));
+  localStorage.setItem('booksread', JSON.stringify(readBooks));
   
   window.location.reload();
 }
