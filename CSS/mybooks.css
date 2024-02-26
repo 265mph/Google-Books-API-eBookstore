@@ -201,6 +201,7 @@ aside .bookshelf p:hover {
 .saved-book h4 {
     font-size: .8rem;
     margin-top: .5rem;
+    width: 95%;
 }
 
 .saved-book p {
