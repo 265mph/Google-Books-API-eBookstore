@@ -228,7 +228,7 @@ SEARCH RESULTS MODL
     background: #ffff;
     max-height: 80vh;
     width: 75%;
-    padding: 0.8rem 1rem;
+    padding: 0rem 1rem 0.8rem 1rem;
     position: relative;
     border: 1px solid #002c83;
     box-shadow: 0 0.2rem 0.3rem #525252;
@@ -250,10 +250,16 @@ SEARCH RESULTS MODL
 }
 
 .search-results .results-header {
+    background: white;
+    margin-bottom: 2rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
 
 .search-results .results-header ion-icon {

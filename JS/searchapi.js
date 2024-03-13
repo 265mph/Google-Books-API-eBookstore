@@ -227,8 +227,6 @@ document.getElementById('read-book').addEventListener('click', () => {
 })
 
 
-
-
 const readBook = () => {
   let bookISBN = document.getElementById('popup-isbn').innerText
   let viewerUrl = 'bookreader.html?isbn='+bookISBN;

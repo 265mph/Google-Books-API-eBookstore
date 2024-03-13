@@ -85,15 +85,21 @@ let registration = () => {
 
 const register = () => {
     let confirmPasswordFunc = () => {
+        const emailInput = document.getElementById("signup-email")
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const isValidEmail = emailRegex.test(emailInput.value);
+
         if (passwordInput.value !== confirmPasswordInput.value) {
             alert("Your password does not match");
         } else if (document.getElementById("signup-username").value === "") {
             alert("Please enter a username");
+        } else if (!isValidEmail) {
+            alert("Please enter a valid email address")
         } else {
             registration();
         }
     }
-
     confirmPasswordFunc();
 }
 
